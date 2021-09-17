@@ -25,25 +25,6 @@ function App() {
 		'carey mulligan',
 		'leonardo di caprio',
 	]);
-	const [compareNames, setCompareNames] = useState([
-		{
-			names: ['jack nicholson', 'tom cruise'],
-			answer: 'a few good men',
-		},
-		{
-			names: ['carey mulligan', 'sissy spacek'],
-			answer: 'carrie',
-		},
-		{
-			names: ['leonardo di caprio', 'tom hardy'],
-			answer: 'revenant',
-		},
-		{
-			names: ['dwayne johnson', 'emily blunt'],
-			answer: 'jungle cruise',
-		},
-
-	]);
 	const searchOptions = {
 		// which include:
 		base: 'https://api.giphy.com/v1/gifs',
@@ -67,8 +48,6 @@ function App() {
 				setUsername,
 				namesArray,
 				setNamesArray,
-				compareNames,
-				setCompareNames,
 				searchOptions,
 			}}>
 			<div className='App'>
@@ -103,10 +82,8 @@ function App() {
 						}
 					</Route>
 
-					{/* <Route path='/game' component={GameScreen} /> */}
 					<Route path='/win' component={WinScreen} />
 					<Route path='/*' render={() => <Redirect to='/' />} />
-					{/* <Route path="/"></Route> */}
 				</main>
 			</div>
 		</GameContext.Provider>

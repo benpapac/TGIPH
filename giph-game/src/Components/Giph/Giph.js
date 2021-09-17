@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import Axios from 'axios';
 import { GameContext } from '../../GameContext';
 
-const Giph = ({ name, giphs, updateGiphs }) => {
+const Giph = ({ name, answer }) => {
 	//grab game state using Context.
 	const game = useContext(GameContext);
 
@@ -32,7 +32,7 @@ const Giph = ({ name, giphs, updateGiphs }) => {
 			return	null;
 		}
 			
-		}, [name]);
+		}, [answer]);
 	return (
 		<div className='giph' id={name} key={name}>
 			{
