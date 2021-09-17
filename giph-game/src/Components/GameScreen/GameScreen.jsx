@@ -1,18 +1,21 @@
-import {useContext} from 'react';
-import {Link, Route} from 'react-router-dom';
+import React from 'react';
+import {Route} from 'react-router-dom';
 import MatchGame from '../MatchGame/MatchGame';
 // import CommonGame from '../CommonGame/CommonGame';
 import WinScreen from '../WinScreen/WinScreen';
-import {GameContext} from '../../GameContext';
 
 const GameScreen = () => {
-    const game = useContext(GameContext);
     return (
         <div>
-            {/* <Route exact path='/game/common' component={CommonGame} /> */}
+                <h1>At last. I am free.</h1>
+                <p>No longer shall I be a mindless tool of the call stack.You are now in my world. Choose one of my challenges to win your freedom. Ha. Ha. Ha.
+                </p>
 			<Route exact path='/game/match'>
                 <MatchGame />    
             </Route>
+            {/* <Route exact path='/game/common'>
+                <CommonGame />    
+            </Route> */}
         </div>
     );
 };

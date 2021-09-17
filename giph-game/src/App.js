@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import './App.css';
 import { GameContext } from './GameContext';
+import Nav from './Components/Nav/Nav';
 import Home from './Components/Home/Home';
+import Form from './Components/Form/Form';
 import GameScreen from './Components/GameScreen/GameScreen';
+import WinScreen from './Components/WinScreen/WinScreen';
 
 // HI! Currently, once game starts, if player refreshes browse, the app resets.
 //This is most likely because submitted resets during initial render. Maybe I can fix this. Not sure how yet.
@@ -15,13 +18,32 @@ function App() {
 	const [gameOver, setGameOver] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
 	const [username, setUsername] = useState('');
-	const namesArray = [
+	const [namesArray, setNamesArray] = useState([
 		'jack nicholson',
 		'tom cruise',
 		'dwayne johnson',
 		'carey mulligan',
 		'leonardo di caprio',
-	];
+	]);
+	const [compareNames, setCompareNames] = useState([
+		{
+			names: ['jack nicholson', 'tom cruise'],
+			answer: 'a few good men',
+		},
+		{
+			names: ['carey mulligan', 'sissy spacek'],
+			answer: 'carrie',
+		},
+		{
+			names: ['leonardo di caprio', 'tom hardy'],
+			answer: 'revenant',
+		},
+		{
+			names: ['dwayne johnson', 'emily blunt'],
+			answer: 'jungle cruise',
+		},
+
+	]);
 	const searchOptions = {
 		// which include:
 		base: 'https://api.giphy.com/v1/gifs',
@@ -44,37 +66,18 @@ function App() {
 				username,
 				setUsername,
 				namesArray,
+				setNamesArray,
+				compareNames,
+				setCompareNames,
 				searchOptions,
 			}}>
 			<div className='App'>
-				<header className='App-header'>
-					{!submitted ? (
-						<>
-							<h1>Welcome to TGIPH!</h1>
-							<h2>(Thank Giphy!)</h2>
-						</>
-					) : (
-						<>
-							<div className='title'>
-								<h1>
-									Welcome to Giphy Hell, {searchOptions.username}
-								</h1>
-									<h3 id='subtitle'>Thank God I'm Post-Human. Ugh</h3>
-							</div>
-							<Link to='/game/common'>
-								<h1>Common</h1>
-							</Link>
-							<Link to='/game/match'>
-								<h1>Match</h1>
-							</Link>
-						</>
-					)}
-				</header>
+				<Nav />
 
 				<main className='main'>
 					<Route exact path='/'>
 						{!submitted ? (
-							<Home submitted={submitted} gameOver={gameOver} />
+							<Home />
 						) : gameOver ? (
 							<Redirect to='/win' />
 						) : (
@@ -82,7 +85,26 @@ function App() {
 						)}
 					</Route>
 
-					<Route path='/game' component={GameScreen} />
+					<Route path='/form'>
+						{!submitted ? (
+							<Form />
+						) : !gameOver ? (
+							<Redirect to='/game' />
+						) : (
+							<Form />
+						)}
+					</Route>
+
+					<Route path='/game'>
+						{!gameOver ? (
+							<GameScreen />
+						) : 
+							<Redirect to='/win' />
+						}
+					</Route>
+
+					{/* <Route path='/game' component={GameScreen} /> */}
+					<Route path='/win' component={WinScreen} />
 					<Route path='/*' render={() => <Redirect to='/' />} />
 					{/* <Route path="/"></Route> */}
 				</main>

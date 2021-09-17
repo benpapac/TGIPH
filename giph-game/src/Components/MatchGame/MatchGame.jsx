@@ -1,10 +1,10 @@
-import { useState, useEffect, useContext } from 'react';
-import { Route } from 'react-router-dom';
+import { useState, useContext } from 'react';
 import Giph from '../Giph/Giph';
 import { GameContext } from '../../GameContext';
 
 
    const  MatchGame = () => {
+  
          //grab our game state.
          const game = useContext(GameContext);
          
@@ -14,75 +14,62 @@ import { GameContext } from '../../GameContext';
             //input, setInput with the useState hook to equal a string.
             const [input, setInput] = useState('');
 
-        function updateGiphs(response){
-            //make a copy of giphs, and add the response.
-            const newGiphs = [...giphs, response];
-            //setGiphs to equal an array of its unpacked self, plus the newGiph.
-            setGiphs(newGiphs);
-        }
-
-        function inputIsClose(event, title){
+        function inputIsClose(event, name){
            //let mySnippet equal an empty string.
            let mySnippet = '';
            //let distance equal 0.
            let distance = 0;
             //if title has no characters, get out
-            if (title.length <= 0) return;
+            if (name.length <= 0) return false;
             //if event's target value is less than 4, get out.
-            if (event.target.value < 4) return;
+            if (event.target.value.length < 4) return false;
             //for each character in the title,
-            for(let i = 0; i < title.length; i ++){
-                //start a substring called mySnippet from that character of equal
-                //length to the event target's value.
-                mySnippet = title.substring(i, (i+event.target.value.length));
+                mySnippet = name.substring(0, event.target.value.length);
                 //compare each character of mySnippet to the same character of value.
-                    for(let j = 0; j < mySnippet.length; j++) {
+                    for(let i = 0; i < mySnippet.length; i++) {
                        // if they're not equal, add one to distance.
-                        mySnippet[j] !== event.target.value[j] && distance ++;
+                        if (mySnippet[i] !== event.target.value[i].toLowerCase()) distance++;
                     }
-                //if distance is more than 3, return false.
-                if (distance > 3) return false;
-                //Otherwise, return true.
-                else return true;
-            }
+                    console.log(distance);
+            //if distance is more than 3, return false.
+            if (distance > 2) return false;
+            //Otherwise, return true.
+            return true;
         }
+
+        async function filterNames(event){
+              let tempArray = game.namesArray.filter(name => {
+                //If inputIsClose returns false, return the giph.
+                return !inputIsClose(event, name);
+            });
+            console.log(tempArray)
+           // setGiphs to equal the new array.
+            await game.setNamesArray(tempArray);
+        console.log(game);
+    }
 
         function handleChange(event){
+            setInput(event.target.value);
+            console.log(event.target.value);
             //let title equal an empty string.
-            let title = '';
-            //let tempArray equal my giphs array.
-            let tempArray = giphs;
-            //Filter the giphs array, using this logic: For each giph,
-            tempArray = giphs.filter(giph => {
-                // console.log(`giphs: `,giphs);
-                // title equals this giph's title property.
-                title = giph.title;
-                //If inputIsClose returns false, return the giph.
-                if (!inputIsClose(event, title)) return giph;
-                //Otherwise, return nothing.
-                else return;
-            });
-            //setGiphs to equal the new array.
-            setGiphs(tempArray);
+            // filterGiphs(event);
+            filterNames(event);
             checkWin() //to see if the player won or lost.
         }
-        //    MAY NOT NEED THIS: Document.querySelectorAll Giph components whose ids match title  property, and give them a display: none.
 
+        function handleSubmit(event) {
+            event.preventDefault();
+            setInput('');
+             checkWin();
+        }
 
         function checkWin() {
             //if giphs is empty, gameOver!
-            !giphs.length && game.setGameOver(true);
+            if(!game.namesArray.length) game.setGameOver(true);
+            //game.setSubmitted(false);
         }
-      
-
-        /* 
-        if the game's over, <h1> You did it! Nooooooo!</h1>
-        Otherwise<h1>You'll never escape!</h1>
-        */
 
         return (
-            //*if game is over, say " How did you know that!"
-            // if it isn't, say "You'll never escape!"
             <>
             {/* { map giphs array */}
             { game.namesArray.map(name => {
@@ -90,12 +77,12 @@ import { GameContext } from '../../GameContext';
                         the name as props.
                         the function that updates this component's giphs.
                 */
-                return <Giph name={name} giphs={giphs} setGiphs={setGiphs} updateGiphs={updateGiphs} />
+                return <Giph name={name} giphs={giphs} setGiphs={setGiphs} />
                 ;})
             } 
-            <form className="form" >
+            <form className="form" onSubmit={handleSubmit}>
              <input type="text" id="matchGuess" placeholder="guess a name!" 
-                onChange={handleChange} value={setInput}/>
+                onChange={handleChange} value={input}/>
             </form>
             
             </>

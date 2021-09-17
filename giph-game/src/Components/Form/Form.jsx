@@ -18,10 +18,11 @@ const Form = () => {
       //remember to prevent the default logic.
         //update the game state of submitted to true!
         game.setSubmitted(true);
+        game.setGameOver(false);
     }
 
     return (
-        <>
+            <>
             <h2>Please log in to get started.</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Type your name here!</label>
@@ -29,6 +30,7 @@ const Form = () => {
                 <button type="submit">Submit</button>
             </form>
         </>
+
     );
 }
 

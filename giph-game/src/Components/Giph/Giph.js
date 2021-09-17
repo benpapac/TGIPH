@@ -11,6 +11,8 @@ const Giph = ({ name, giphs, updateGiphs }) => {
 	const [myGiph, setMyGiph] = useState();
 
 	//use the useEffect hook to get the giph response through Axios
+
+	
 	useEffect(() => {
 		const url = `${game.searchOptions.base}${game.searchOptions.search}q=${name}&api_key=${game.searchOptions.key}&limit=${game.searchOptions.gameLimit}&offset=${game.searchOptions.offset}&rating=${game.searchOptions.rating}&lang=en`;
 
@@ -19,20 +21,20 @@ const Giph = ({ name, giphs, updateGiphs }) => {
 
 		Axios.get(url)
 			.then(function (response) {
-				console.log(response);
-				// Once I have the giph, setMyGiph to equal the object.
 				setMyGiph(response.data.data[0]);
-				//use the giphUpdate function to update my giphs array!
-				updateGiphs(response.data.data[0]);
 			})
 			//catch any errors
 			.catch(function (response) {
 				console.error(response);
 			});
-	}, []);
-	console.log(giphs);
+
+		return ()=> {
+			return	null;
+		}
+			
+		}, [name]);
 	return (
-		<div className='giph'>
+		<div className='giph' id={name} key={name}>
 			{
 				!myGiph ? (
 					//does my Giph have a value? If no, say we're loading.
@@ -70,7 +72,6 @@ export default Giph;
 //       Axios.get(url)
 //       .then(function(response){
 //           setGiph(response.data);
-//           console.log(response.data);
 //       })
 //       .catch(function (response){
 //           console.error(response);
