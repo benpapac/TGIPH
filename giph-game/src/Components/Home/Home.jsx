@@ -2,17 +2,11 @@ import React from 'react';
 import Form from '../Form/Form';
 import WinScreen from '../WinScreen/WinScreen';
 
-const Home = ({gameOver}) => {
+const Home = ({submitted, gameOver}) => {
     return (
-        <>
-        {
-            !gameOver 
-            ?
+        <div className='home'>
             <Form />
-            :
-            <WinScreen/>  
-        }
-        </>
+        </div>
     )
 }
 
