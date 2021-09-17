@@ -8,7 +8,7 @@ const Giph = ({ name, updateGiphs }) => {
 
 	//state vars
 	//myGiph setMyGiph , so I can easily refer to the response from Axios.
-	const [myGiph, setMyGiph] = useState(null);
+	const [myGiph, setMyGiph] = useState();
 
 	//use the useEffect hook to get the giph response through Axios
 	useEffect(() => {
@@ -21,10 +21,10 @@ const Giph = ({ name, updateGiphs }) => {
 		Axios.get(url)
 			.then(function (response) {
 				// Once I have the giph, setMyGiph to equal the object.
-				//setMyGiph(response.data);
-				console.log(response.data);
+				setMyGiph(response.data);
+				console.log('response data" ',response.data);
 				//use the giphUpdate function to update my giphs array!
-				//updateGiphs(response.data);
+				updateGiphs(response.data);
 			})
 			//catch any errors
 			.catch(function (response) {
@@ -34,14 +34,15 @@ const Giph = ({ name, updateGiphs }) => {
 
 	return (
 		<div className='giph'>
+            {console.log(myGiph)}
 			{
 				!myGiph ? (
 					//does my Giph have a value? If no, say we're loading.
 					<h3>Preparing your doom...</h3>
 				) : (
-					<h3> we have data.</h3>
+					// <h3> we have data.</h3>
+                    <img src={myGiph.data[0].images.downsized_large.url} />
 				)
-				// <img src={myGiph.image} />
 				//I want the gif image from myGiph
 			}
 		</div>
