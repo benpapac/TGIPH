@@ -9,8 +9,6 @@ const GameScreen = () => {
     const game = useContext(GameContext);
     return (
         <div>
-            <Link to="/game/common"><h1>Common</h1></Link>
-            <Link to="/game/match"><h1>Match</h1></Link>
             {/* <Route exact path='/game/common' component={CommonGame} /> */}
 			<Route exact path='/game/match'>
                 <MatchGame />    

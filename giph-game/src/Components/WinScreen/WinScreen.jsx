@@ -10,10 +10,30 @@ const WinScreen = () => {
 export default WinScreen;
 
 /*
-    return (
-        did the player win?
-        If they did, give them a  Win Message. STRETCH -- FullSearchComponent
-        If they lost, give them a Lose Message. STRETCH -- JokeSearchComponent
-        Render a Link to the Home Page.
+
+cont WinScreen = () => {
+
+    useEffect()
+    get the Rick and Morty api up and running.
+
+    update this get every time the use submits a search.
+
+
+    Populate the page with Rick and Morty gifs.
+
+
+    stretch -- return(
+
     )
+    
+    return (
+        //did the player win?
+        gameOver ?
+       // If they did, give them a  Win Message. STRETCH -- FullSearchComponent
+       <h1> You did it! Thanks for saving the website!</h1>
+        //If they lost, give them a Lose Message. STRETCH -- JokeSearchComponent
+        <h1> You'll never escape. </h1>
+        Render a Link to the Home Page.
+        )
+}
 */

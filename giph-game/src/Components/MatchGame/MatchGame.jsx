@@ -4,20 +4,6 @@ import Giph from '../Giph/Giph';
 import { GameContext } from '../../GameContext';
 
 
-// const MatchGame = ( ) => {
-//     let array = ['jack nicholson', 'tom cruise', 'carrie mulligan'];
-//     const [giphs, setGiphs] = useState([]);
-//     const [id, setId] = useState('');
-//     const searchOptions = {
-// 		key: process.env.REACT_APP_GIPHY_KEY,
-// 		limit: 1,
-// 		rating: 'G',
-// 		api: 'https://api.giphy.com/v1/gifs',
-// 		endpoint: '/search',
-// 		offset: 0,
-// 	};
-
-
    const  MatchGame = () => {
          //grab our game state.
          const game = useContext(GameContext);
@@ -28,18 +14,11 @@ import { GameContext } from '../../GameContext';
             //input, setInput with the useState hook to equal a string.
             const [input, setInput] = useState('');
 
-    // useEffect(()=>{
-    //     const url = `${game.searchOption}`
-    //     Axios.get(url)
-    // })
-
-    /*
-     OKAY, SO. This freaking axios dealio thingamabob. WAIT.
-    */
-
-        function updateGiphs(newGiph){
+        function updateGiphs(response){
+            //make a copy of giphs, and add the response.
+            const newGiphs = [...giphs, response];
             //setGiphs to equal an array of its unpacked self, plus the newGiph.
-            setGiphs([...giphs,newGiph]);
+            setGiphs(newGiphs);
         }
 
         function inputIsClose(event, title){
@@ -75,7 +54,8 @@ import { GameContext } from '../../GameContext';
             let tempArray = giphs;
             //Filter the giphs array, using this logic: For each giph,
             tempArray = giphs.filter(giph => {
-                //title equals this giph's title property.
+                // console.log(`giphs: `,giphs);
+                // title equals this giph's title property.
                 title = giph.title;
                 //If inputIsClose returns false, return the giph.
                 if (!inputIsClose(event, title)) return giph;
@@ -95,18 +75,22 @@ import { GameContext } from '../../GameContext';
         }
       
 
-        // {/* /* game.gameOver? <h1> You did it! Nooooooo!</h1>
-        //    : <h1>You'll never escape!</h1>
-        //   //for each name, render a Giph component, and pass through:
-        //  //the name as props.
-        //  //the function that updates this component's giphs. */}
+        /* 
+        if the game's over, <h1> You did it! Nooooooo!</h1>
+        Otherwise<h1>You'll never escape!</h1>
+        */
+
         return (
             //*if game is over, say " How did you know that!"
             // if it isn't, say "You'll never escape!"
             <>
             {/* { map giphs array */}
             { game.namesArray.map(name => {
-                return <Giph name={name} updateGiphs={updateGiphs} />
+                /* for each name, render a Giph component, and pass through:
+                        the name as props.
+                        the function that updates this component's giphs.
+                */
+                return <Giph name={name} giphs={giphs} setGiphs={setGiphs} updateGiphs={updateGiphs} />
                 ;})
             } 
             <form className="form" >
@@ -117,13 +101,5 @@ import { GameContext } from '../../GameContext';
             </>
         );
         }
-    // return (
-    //     <div className='container'>
-    //         {array.map(name => {
-    //                 < GiphCard name={name} />
-    //         })}
-    //     </div>
-    // );
-
 
 export default MatchGame;

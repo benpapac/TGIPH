@@ -13,8 +13,9 @@ const Form = () => {
     }
 
   function  handleSubmit(event) {
-      //remember to prevent the default logic.
       event.preventDefault();
+      if(!game.username) return;
+      //remember to prevent the default logic.
         //update the game state of submitted to true!
         game.setSubmitted(true);
     }
