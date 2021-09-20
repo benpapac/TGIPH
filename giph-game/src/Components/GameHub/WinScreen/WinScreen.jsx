@@ -1,17 +1,18 @@
 import {useContext} from 'react';
 import { GameContext } from '../../../GameContext';
+import './WinScreen.css';
 
 const WinScreen = () => {
     const game = useContext(GameContext);
     return (
-        <div>
+        <>
         { game.gameOver?
         //If they did, give them a  Win Message. STRETCH -- FullSearchComponent 
             <h1> You did it! Thanks for saving the website!</h1>
             :
         // If they lost, give them a Lose Message. STRETCH -- JokeSearchComponent
             <h1> You'll never escape. </h1>}
-        </div>
+        </>
     );
 };
 export default WinScreen;

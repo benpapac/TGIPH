@@ -1,33 +1,13 @@
-import { useState, useEffect, useContext } from 'react';
-import Axios from 'axios';
+import { useContext } from 'react';
 import GameMessage from '../GameHub/GameMessage/GameMessage';
 import { GameContext } from '../../GameContext';
-import Card from '../Card/Card';
+import './Home.css';
 
 const Home = () => {
     const game = useContext(GameContext);
-    const [giphArray, setGiphArray] = useState([]);
-    const url = `${game.searchOptions.base}q=hell&api_key=${process.env.REACT_APP_GIPHY_KEY}&limit=${game.searchOptions.winLimit}&offset=${game.searchOptions.offset}&rating=${game.searchOptions.rating}&lang=en`;
-
-
-    // useEffect(()=>{
-    //     Axios.get(url)
-    //     .then(function (response){
-    //         setGiphArray(response.data.data);
-    //         console.log(response.data.data);
-    //     })
-    //     .catch(function (error){
-    //         console.error(error);
-    //     })
-
-    // },[]);
 
     return (
-        // <section >
-        //     {giphArray.map(giph =>{
-        //         return <Card card={giph} key={giph.id}/> 
-        //     })}
-
+ 
             !game.submitted?
         ( <div className='home'>
                 <h3>Thanks for Stopping by!</h3>
@@ -35,7 +15,6 @@ const Home = () => {
             </div>)
             :
             <GameMessage />
-        // </section>
     )
 }
 

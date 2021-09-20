@@ -50,7 +50,7 @@ import { GameContext } from '../../../GameContext';
         return (
             <>
             {/* { map giphs array */}
-                <form className="form" onSubmit={handleSubmit}>
+                <form className="form" onSubmit={handleSubmit} id="matchForm">
                  <input type="text" id="matchGuess" placeholder="guess a name!" 
                     onChange={handleChange} value={input}/>
                 </form>

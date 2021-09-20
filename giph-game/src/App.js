@@ -22,13 +22,20 @@ function App() {
 	const [namesArray, setNamesArray] = useState([
 		'jack nicholson',
 		'tom cruise',
+		'lupita nyongo',
 		'dwayne johnson',
 		'carey mulligan',
+		'viola davis',
+		'eva longoria',
+		'kal penn',
 		'leonardo di caprio',
 		'meryl streep',
+		'antonio banderas',
 		'will ferrell',
 		'steve carell',
 		'brad pitt',
+		'will smith',
+		'awkwafina',
 	]);
 	const searchOptions = {
 		// which include:

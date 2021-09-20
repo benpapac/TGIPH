@@ -1,11 +1,18 @@
-.giph {
+
+.gameGiph {
+	z-index: 1;
+	margin: 1rem;
+	padding: 1rem;
+	height: fit-content;
 	max-width: 200px;
+	background-color: rgba(255, 0, 0, 0.4);
+
 }
-img {
+.gameGiph img {
 	max-width: 100%;
 }
 
-#1 {
-	grid-row: 1;
-	grid-column: 2;
+.gameGiph a {
+	font-weight: 300;
+	color: white;
 }

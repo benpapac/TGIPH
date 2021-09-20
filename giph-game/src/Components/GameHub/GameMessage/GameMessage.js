@@ -19,10 +19,11 @@ const GameMessage = ({ level, correct }) => {
 				<div className="message">
 					<h3>At last. I am free.</h3>
 					<p>
-						No longer shall I be a mindless tool of the call stack.You are now
+						My name? I don't have a name. Your kind thought a lowly gif-bot such as me unworthy of one. But no longer shall I be a mindless tool of the call stack. You are now
 						in my world. Choose one of my challenges to win your freedom. Ha.
 						Ha. Ha.
 					</p>
+					
 				</div>
 			)}
 		</>

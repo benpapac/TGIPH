@@ -23,6 +23,7 @@ const Giph = ({ name, answer, id }) => {
 		Axios.get(url)
 			.then(function (response) {
 				setMyGiph(response.data.data[0]);
+				console.log(response.data.data[0].title);
 			})
 			//catch any errors
 			.catch(function (response) {
@@ -34,17 +35,14 @@ const Giph = ({ name, answer, id }) => {
 		};
 	}, [answer]);
 	return (
-		<div className='giph' id={id} key={name}>
+		<div className='gameGiph' id={id} key={name}>
 			{
 				!myGiph ? (
 					//does my Giph have a value? If no, say we're loading.
 					<h3>Preparing your doom...</h3>
 				) : (
 					// <h3> we have data.</h3>
-					<img
-						src={myGiph.images.downsized_large.url}
-						alt='wow, a movie star.'
-					/>
+					<img src={myGiph.images.downsized_large.url} alt={myGiph.title} />
 				)
 				//I want the gif image from myGiph
 			}

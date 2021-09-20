@@ -9,7 +9,11 @@ const Nav = () => {
 			{!game.submitted || game.gameOver ? (
 				<>
 					<div className=''>
-						<h1>Welcome to Giph Heaven!</h1>
+						{!game.submitted ? (
+							<h1>Welcome to Giph Heaven!</h1>
+						) : (
+							<h1>Welcome to Giph Heaven, {game.username} </h1>
+						)}
 						<h2>Powered by Giphy</h2>
 					</div>
 					<Link to='/heaven'>
