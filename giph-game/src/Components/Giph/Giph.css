@@ -1,0 +1,11 @@
+.giph {
+	max-width: 200px;
+}
+img {
+	max-width: 100%;
+}
+
+#1 {
+	grid-row: 1;
+	grid-column: 2;
+}

@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import './App.css';
+import './Components/GameHub/Game.css';
 import { GameContext } from './GameContext';
 import Nav from './Components/Nav/Nav';
 import Home from './Components/Home/Home';
+import GiphHeaven from './Components/GiphHeaven/GiphHeaven';
 import Form from './Components/Form/Form';
-import GameScreen from './Components/GameScreen/GameScreen';
-import WinScreen from './Components/WinScreen/WinScreen';
+import GameScreen from './Components/GameHub/GameScreen/GameScreen';
+import WinScreen from './Components/GameHub/WinScreen/WinScreen';
 
-// HI! Currently, once game starts, if player refreshes browse, the app resets.
+// HI! Currently, once game starts, if player refreshes browser, the app resets.
 //This is most likely because submitted resets during initial render. Maybe I can fix this. Not sure how yet.
-
 
 //giphs Array might want to live here.
 //completed level count might want to live here.
@@ -24,11 +25,14 @@ function App() {
 		'dwayne johnson',
 		'carey mulligan',
 		'leonardo di caprio',
+		'meryl streep',
+		'will ferrell',
+		'steve carell',
+		'brad pitt',
 	]);
 	const searchOptions = {
 		// which include:
-		base: 'https://api.giphy.com/v1/gifs',
-		search: '/search?',
+		base: 'https://api.giphy.com/v1/gifs/search?',
 		key: process.env.REACT_APP_GIPHY_KEY,
 		gameLimit: 1,
 		monsterLimit: 25,
@@ -50,7 +54,7 @@ function App() {
 				setNamesArray,
 				searchOptions,
 			}}>
-			<div className='App'>
+			<div className={!submitted || gameOver ? 'App' : 'Game'}>
 				<Nav />
 
 				<main className='main'>
@@ -75,13 +79,9 @@ function App() {
 					</Route>
 
 					<Route path='/game'>
-						{!gameOver ? (
-							<GameScreen />
-						) : 
-							<Redirect to='/win' />
-						}
+						{!gameOver ? <GameScreen /> : <Redirect to='/win' />}
 					</Route>
-
+					<Route path='/heaven' component={GiphHeaven} />
 					<Route path='/win' component={WinScreen} />
 					<Route path='/*' render={() => <Redirect to='/' />} />
 				</main>
@@ -91,49 +91,3 @@ function App() {
 }
 
 export default App;
-
-/*
-function App(){
-	props:
-		searchOptions, which include:
-					base URL
-					the endpoint
-					a reference to the API key
-					a Game limit
-					a Monster limit
-					a Win limit
-					a rating
-					an offset
-	state var:
-		submitted, setSubmitted to know if the form was fired.
-		gameOver, setGameOver to know if the game is over.
-		username, setUsername to know what our player's name is!
-
-		
-		//I want to wrap my entire app in global state variables.
-
-	return (
-		<GameContext.Provider value={{gameOver,setGameOver,submitted,setSubmitted,searchOptions}}
-			<header> STRETCH -- 
-			A Header that includes a Nav, which takes you to the "Home," "Login," and "Gif Search"(Win Screen). 
-			DURING THE GAME, each page MUST display the form, until it's submitted.
-			Once Submitted is true, 
-				A GameScreen Nav option must appear.
-				all non-Game Navs must LOCK or Redirect the player back to the GameScreen.
-			</header>
-		
-
-		<GameContext.Provider>
-			<main>
-			I want to start on the Home page, which renders the Form, BUT--
-				If submitted is true, then...
-					If the game is not over, I will Redirect to the GameScreen
-					Otherwise,
-					I will redirect to the Win Screen.
-			
-			</main>
-		</GameContext.Provider>
-		</>
-	)
-
-*/

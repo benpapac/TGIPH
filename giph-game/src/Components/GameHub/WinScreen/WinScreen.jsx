@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import { GameContext } from '../../GameContext';
+import { GameContext } from '../../../GameContext';
 
 const WinScreen = () => {
     const game = useContext(GameContext);

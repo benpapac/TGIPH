@@ -1,12 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import {Route} from 'react-router-dom';
+import { Game } from '../../StyledComponents/Screens'
+import { GameContext } from '../../../GameContext'; 
+import Axios from 'axios';
+import '../Game.css';
 import MatchGame from '../MatchGame/MatchGame';
 import CommonGame from '../CommonGame/CommonGame';
 import GameMessage from '../GameMessage/GameMessage';
+import Card from '../../Card/Card';
 
 const GameScreen = () => {
+    const game = useContext(GameContext);
     const [correct, setCorrect] = useState(false);
     const [level, setLevel] = useState(false);
+    const [background, setBackground] = useState([]);
+    const url = `${game.searchOptions.base}q=hell&api_key=${process.env.REACT_APP_GIPHY_KEY}&limit=${1}&offset=${game.searchOptions.offset}&rating=${game.searchOptions.rating}&lang=en`;
+
+    useEffect(()=> {
+        Axios.get(url)
+        .then(function (response) {
+            setBackground(response.data.data);
+        })
+        .catch(function (error){
+            console.error(error);
+        })
+
+    })
 
 
     function inputIsClose(event, answer){
@@ -25,12 +44,12 @@ const GameScreen = () => {
                 // if they're not equal, add one to distance.
                 if (mySnippet[i] !== event.target.value[i].toLowerCase()) distance++;
             }
-            console.log('input: ', event.target.value,'snippet', mySnippet, 'answer: ',answer, 'distance: ',distance);
             if (distance > 2) return false;
             return true;
         }
     return (
-        <div>
+        
+        <Game>
                 <GameMessage level={level} correct={correct}/>
 			<Route exact path='/game/match'>
                 <MatchGame inputIsClose={inputIsClose} setLevel={setLevel} setCorrect={setCorrect}/>    
@@ -38,7 +57,13 @@ const GameScreen = () => {
             <Route exact path='/game/common'>
                 <CommonGame inputIsClose={inputIsClose} setLevel={setLevel} correct={correct} setCorrect={setCorrect}/>    
             </Route>
-        </div>
+            <div className="background" >
+                {background.map(giph=>{
+                  return  <Card card={giph} id={background.indexOf(giph)} key={giph.id}/>
+                }
+                )}
+            </div>
+        </Game>
     );
 };
 

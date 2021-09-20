@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
-import { GameContext } from '../../GameContext';
-import Giph from '../Giph/Giph';
+import { GameContext } from '../../../GameContext';
+import Giph from '../../Giph/Giph';
 
 function CommonGame( {inputIsClose, setLevel, correct, setCorrect} ) {
     //get game state using Context.
@@ -74,7 +74,6 @@ useEffect(()=>{
 
     return (
         <> 
-        <h3>Hello from Common</h3>
         <form className="form" onSubmit={handleSubmit}>
              <input type="text" id="compareGuess" placeholder="What do they have in common?" 
                 onChange={handleChange} value={input}/>

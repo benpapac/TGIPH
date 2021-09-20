@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
-import Giph from '../Giph/Giph';
-import { GameContext } from '../../GameContext';
+import Giph from '../../Giph/Giph';
+import { GameContext } from '../../../GameContext';
 
 
    const  MatchGame = ( {inputIsClose, setLevel, setCorrect} ) => {
@@ -59,7 +59,7 @@ import { GameContext } from '../../GameContext';
                         the name as props.
                         the function that updates this component's giphs.
                 */
-                return <Giph name={name} answer={name}/>
+                return <Giph name={name} answer={name} id={game.namesArray.indexOf(name)}/>
                 ;})
             } 
             
