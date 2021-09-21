@@ -121,9 +121,9 @@ function App() {
 						)}
 					</Route>
 
-					<Route exact path='/game'>
+					{/* <Route exact path='/game'>
 						<GameScreen />
-					</Route>
+					</Route> */}
 					<Route exact path='/game/match'>
 						{!gameOver ? <MatchGame /> : <Redirect to='/win' />}
 					</Route>
