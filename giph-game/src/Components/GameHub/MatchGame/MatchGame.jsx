@@ -50,10 +50,16 @@ import { GameContext } from '../../../GameContext';
         return (
             <>
             {/* { map giphs array */}
+            <div className='message'>
+                <h3>You'll never escape</h3>
+                <p>
+                    I hope you enjoyed your computer, because it's mine now. I'll laugh at your futile attempts to name the actors on this page.
+                </p>
                 <form className="form" onSubmit={handleSubmit} id="matchForm">
                  <input type="text" id="matchGuess" placeholder="guess a name!" 
                     onChange={handleChange} value={input}/>
                 </form>
+            </div>
             { game.namesArray.map(name => {
                 /* for each name, render a Giph component, and pass through:
                         the name as props.
