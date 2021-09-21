@@ -10,7 +10,6 @@ import Signup from './Components/Signup/Signup';
 import GameScreen from './Components/GameHub/GameScreen/GameScreen';
 import MatchGame from './Components/GameHub/MatchGame/MatchGame';
 import CommonGame from './Components/GameHub/CommonGame/CommonGame';
-import WinScreen from './Components/GameHub/WinScreen/WinScreen';
 
 // HI! Currently, once game starts, if player refreshes browser, the app resets.
 //This is most likely because submitted resets during initial render. Maybe I can fix this. Not sure how yet.
@@ -133,7 +132,6 @@ function App() {
 					<Route exact path='/game/common'>
 						{!gameOver ? <CommonGame /> : <Redirect to='/' />}
 					</Route>
-					<Route path='/win' component={WinScreen} />
 					<Route path='/*' render={() => <Redirect to='/' />} />
 				</main>
 			</div>
