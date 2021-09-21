@@ -16,7 +16,7 @@ const Nav = () => {
 						)}
 						<h2>Powered by Giphy</h2>
 					</div>
-					<Link to='/heaven'>
+					<Link to='/'>
 						<h1>Giph Heaven</h1>
 					</Link>
 					<Link to='/form'>

@@ -63,19 +63,9 @@ function App() {
 			}}>
 			<div className={!submitted || gameOver ? 'App' : 'Game'}>
 				<Nav />
-
 				<main className='main'>
-					<Route exact path='/'>
-						{!submitted ? (
-							<Home />
-						) : gameOver ? (
-							<Redirect to='/win' />
-						) : (
-							<Redirect to='/game' />
-						)}
-					</Route>
-
-					<Route path='/form'>
+						<Route exact path='/' component={GiphHeaven} />
+					<Route exact path='/form'>
 						{!submitted ? (
 							<Form />
 						) : !gameOver ? (
@@ -88,7 +78,6 @@ function App() {
 					<Route path='/game'>
 						{!gameOver ? <GameScreen /> : <Redirect to='/win' />}
 					</Route>
-					<Route path='/heaven' component={GiphHeaven} />
 					<Route path='/win' component={WinScreen} />
 					<Route path='/*' render={() => <Redirect to='/' />} />
 				</main>

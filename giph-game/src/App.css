@@ -34,7 +34,7 @@
 form {
 	border: 1em black;
 	grid-row: 1;
-	grid-column: 2;
+	grid-column: 1;
 	width: 200px;
 }
 
@@ -50,6 +50,10 @@ form {
 	grid-column: 1;
 	width: 600px;
 	z-index: -1;
+}
+.home {
+	grid-row: 3;
+	grid-column: 1;
 }
 
 .message {
