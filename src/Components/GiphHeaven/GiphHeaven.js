@@ -16,7 +16,7 @@ const GiphHeaven = () => {
 
 	useEffect(() => {
 		getGiphs(search);
-	}, []);
+	}, [search]);
 
 	function getGiphs(search) {
 		Axios.get(url)

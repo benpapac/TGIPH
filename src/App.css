@@ -1,11 +1,9 @@
 .App {
-	/* how do I wrap all content in my bg? */
+	z-index: -2;
 	max-height: 100vh;
 	max-width: 100%;
-	/* where should this bg image live? */
 	background-image: url('./AdobeStock_107802831.jpeg');
 	background-size: cover;
-	/* background: white; */
 
 	display: grid;
 	grid-template: 0.7fr 4fr 1fr / 1fr 4fr 1fr;
@@ -28,18 +26,19 @@ main {
 	width: 100%;
 
 	display: grid;
-	grid-template: 1fr 1fr 1fr 1fr / 1fr 2fr 2fr;
+	grid-template: repeat(4, 1fr) / 1fr 2fr 2fr;
 	gap: 2px;
 }
 
 form {
+	z-index: 1;
 	top: 0;
 	border: 1em black;
 	grid-row: 1;
 	grid-column: 1/span 3;
 	margin: 1rem;
 	padding: 0.5rem;
-	background-color: rgba(255,255, 255,0.8);
+	background-color: rgba(255,255, 255,0.6);
 	box-shadow: 4px 5px 6px black;
 }
 input {
@@ -51,6 +50,10 @@ input {
 	font-size: 17;
 }
 
+.signup {
+	grid-column: 1/span 2;
+}
+
 .message {
 	grid-row: 1;
 	grid-column: 2 / span 2;
@@ -59,14 +62,11 @@ input {
 
 .giphContainer {
 	margin: 0;
-	background: rgba(0, 107, 177, 0.4);
-	grid-row: 2 / span 3;
+	grid-row: 1 / span 4;
 	grid-column: 1 / span 3;
 
-	height: 250px;
 	padding: 1rem;
-	z-index: 1;
-	box-shadow: 4px 1px 16px black;
+	z-index: 0;
 
 	display: grid;
 	grid-template-rows: repeat(5, 1fr);

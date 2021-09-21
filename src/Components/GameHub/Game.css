@@ -58,6 +58,20 @@
 	flex-direction: column;
 }
 
+.mainMessage {
+	margin-top: 1rem;
+	grid-row: 1;
+	grid-column: 1/span 2;
+	height: fit-content;
+	color: white;
+	background: rgba(0, 0,0, 0.5);
+	box-shadow: 4px 5px 6px goldenrod;
+
+	display: flex;
+	flex-direction: column;
+
+}
+
 .quadrant {
 	display: grid;
 	grid-template: repeat(6, 1fr) / repeat(5, 1fr);
