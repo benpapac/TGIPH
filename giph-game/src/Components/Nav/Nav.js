@@ -5,17 +5,9 @@ import { GameContext } from '../../GameContext';
 const Nav = () => {
 	const game = useContext(GameContext);
 	return (
-		<header className={!game.submitted ? 'App-header' : 'Game-header'}>
+		<nav>
 			{!game.submitted || game.gameOver ? (
 				<>
-					<div className=''>
-						{!game.submitted ? (
-							<h1>Welcome to Giph Heaven!</h1>
-						) : (
-							<h1>Welcome to Giph Heaven, {game.username} </h1>
-						)}
-						<h2>Powered by Giphy</h2>
-					</div>
 					<Link to='/'>
 						<h1>Giph Heaven</h1>
 					</Link>
@@ -25,10 +17,6 @@ const Nav = () => {
 				</>
 			) : (
 				<>
-					<div className='title'>
-						<h1>Welcome to Giphy Hell, {game.searchOptions.username}</h1>
-						<h3 id='subtitle'>Thank God I'm Post-Human. Ugh</h3>
-					</div>
 					<Link to='/game/common'>
 						<h1>Common</h1>
 					</Link>
@@ -37,7 +25,7 @@ const Nav = () => {
 					</Link>
 				</>
 			)}
-		</header>
+		</nav>
 	);
 };
 

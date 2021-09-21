@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import Axios from 'axios';
 import { GameContext } from '../../GameContext';
-import './Giph.css';
+import '../Card/Card.css';
 import '../../App.css';
 
 const Giph = ({ name, answer, id }) => {
@@ -23,7 +23,7 @@ const Giph = ({ name, answer, id }) => {
 		Axios.get(url)
 			.then(function (response) {
 				setMyGiph(response.data.data[0]);
-				console.log(response.data.data[0].title);
+				console.log(response.data.data[0]);
 			})
 			//catch any errors
 			.catch(function (response) {
@@ -42,7 +42,9 @@ const Giph = ({ name, answer, id }) => {
 					<h3>Preparing your doom...</h3>
 				) : (
 					// <h3> we have data.</h3>
-					<img src={myGiph.images.downsized_large.url} alt={myGiph.title} />
+					<a href={myGiph.url} rel='noreferrer' target='_blank'>
+						<img src={myGiph.images.downsized_large.url} alt={myGiph.title} />
+					</a>
 				)
 				//I want the gif image from myGiph
 			}

@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import { GameContext } from '../../GameContext';
 import Card from '../Card/Card';
 import Axios from 'axios';
-import {Screen} from '../StyledComponents/Screens';
+import { Screen } from '../StyledComponents/Screens';
 import './GiphHeaven.css';
 import '../Card/Card.css';
 
@@ -43,13 +43,11 @@ const GiphHeaven = () => {
 
 	return (
 		<>
-			<img className="background"
-				src='https://media2.giphy.com/media/dUB5PG5k6xkjqCoutY/giphy.gif?cid=befcbfe64t5xyoip027jd6eb5gnfmd40iensyrsrqobrfh2d&rid=giphy.gif&ct=g'
-				alt='flying soldiers with swords, dancers posing, and a baby floating above the clouds'
-			/>
 			<form className='form' onSubmit={handleSubmit}>
+				<label htmlFor="giphSearch">Use the search bar to grab new giphs. Scroll to see more, and click a gif to see it on Giphy!</label>
 				<input
 					type='text'
+					id="giphSearch"
 					placeholder='find cool stuff'
 					onChange={handleChange}
 					value={input}
@@ -62,7 +60,11 @@ const GiphHeaven = () => {
 					{searchArray.map((giph) => {
 						return (
 							<>
-							<Card card={giph} key={giph.id} id={searchArray.indexOf(giph)} />
+								<Card
+									card={giph}
+									key={giph.id}
+									id={searchArray.indexOf(giph)}
+								/>
 							</>
 						);
 					})}

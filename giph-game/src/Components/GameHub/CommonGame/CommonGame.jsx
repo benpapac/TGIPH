@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { GameContext } from '../../../GameContext';
 import Giph from '../../Giph/Giph';
 
-function CommonGame( {inputIsClose, setLevel, correct, setCorrect} ) {
+function CommonGame( ) {
     //get game state using Context.
     const game = useContext(GameContext);
     const getRandomNumber = (n) => {
@@ -33,30 +33,28 @@ function CommonGame( {inputIsClose, setLevel, correct, setCorrect} ) {
         //currentPuzzle, setCurrentPuzzle useState(), to be used later.
         const [currentPuzzle, setCurrentPuzzle] = useState(compareNames[getRandomNumber(compareNames.length-1)]);
        // const [guessCount, setGuessCount] = useState(3) to equal 3. // how many guesses on this puzzle?
-useEffect(()=>{
-    setLevel(true);
-   if(compareNames.length) setCurrentPuzzle(compareNames[getRandomNumber(compareNames.length-1)]);
-},[compareNames]);
+    useEffect(()=>{
+        game.setLevel(true);
+    if(compareNames.length) setCurrentPuzzle(compareNames[getRandomNumber(compareNames.length-1)]);
+    },[compareNames]);
 
 
     function filterCompareNames(event) {
        // setcompareNames to equal a filtered version of compareNames:
            // if the current item DOES NOT match currentPuzzle, keep it.
             let tempArray = compareNames.filter(object => {
-                console.log(currentPuzzle.answer);
-                return !inputIsClose(event, object.answer);
+                return !game.inputIsClose(event, object.answer);
             })
-            if(tempArray.length !== compareNames.length) setCorrect(true);
-            setCompareNames(tempArray);
+            if(tempArray.length !== compareNames.length) {
+                game.setCorrect(true);
+                setCompareNames(tempArray);
+            }
     };
 
     function handleChange(event){
-        if(event.target.value.length >0 && event.target.value.length < 4) setCorrect(false);
+        if(event.target.value.length >0 && event.target.value.length < 4) game.setCorrect(false);
         setInput(event.target.value);
-        // console.log(currentPuzzle, 'input: ',event.target.value);
-        //let's grab the event's target value and compare it to the currentPuzzle's answer.
         
-       // If the input is within hamming distance of a substring, setCorrect to true!
         filterCompareNames(event)
         checkWin()
     };
@@ -67,7 +65,7 @@ useEffect(()=>{
     };
 
    function checkWin(){
-        if(correct){
+        if(game.correct){
             if (!compareNames.length) game.setGameOver(true);
         }
     };
@@ -78,7 +76,7 @@ useEffect(()=>{
             <h3>You'll never escape</h3>
             <p>Your puny organic processor could never guess what film these two actors have in common.</p>
             <form className="form" onSubmit={handleSubmit}>
-                <input type="text" id="compareGuess" placeholder="What do they have in common?" 
+                <input type="text" id="compareGuess" placeholder="Guess. I dare you." 
                 onChange={handleChange} value={input}/>
             </form>
         </div>

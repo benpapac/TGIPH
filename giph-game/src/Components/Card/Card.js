@@ -6,7 +6,7 @@ import {  GameContext } from '../../GameContext';
 const Card = ({ card, key, id }) => {
 	const game = useContext(GameContext);
 	return (
-		< div className={!game.submitted? 'giph' : 'backgroundGiph'} id={id} key={key}>
+		< div className='giph' id={id} key={key}>
 			{
 				!card ? (
 					//does my Giph have a value? If no, say we're loading.
@@ -14,10 +14,10 @@ const Card = ({ card, key, id }) => {
 				) : (
 					// <h3> we have data.</h3>
 					<>
-							<img src={card.images.downsized_large.url} alt={card.title} />
 							{!game.submitted? 
 							<a href={card.url} rel='noreferrer' target='_blank'>
-								Check it out on Giphy.
+								<img src={card.images.downsized_large.url} alt={card.title} />
+								{/* Check it out on Giphy. */}
 							</a> 
 							:
 							 null
@@ -29,5 +29,6 @@ const Card = ({ card, key, id }) => {
 		</div>
 	);
 };
+
 
 export default Card;
