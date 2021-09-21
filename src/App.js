@@ -91,23 +91,26 @@ function App() {
 				searchOptions,
 				inputIsClose,
 			}}>
-				<div className={!submitted || gameOver ? 'App' : 'Game'}>
-			<header>
-				{!submitted || gameOver ? (
-					<div className=''>
-						{!submitted ? (<h1>Welcome to Giph Heaven!</h1>) 
-							: (<h1>Welcome to Giph Heaven, {username} </h1>)}
-
+			<div className={!submitted || gameOver ? 'App' : 'Game'}>
+				<header>
+					{!submitted ? (
+								<>
+								<h1>Welcome to Giph Heaven!</h1>
+								<h2>Powered by Giphy</h2>
+								</>
+					)  : !gameOver ? (
+						<div className='title'>
+							<h1>Welcome to Giphy Hell, {username}</h1>
+							<h3 id='subtitle'>Thank God I'm Post-Human. Ugh</h3>
+						</div>
+					) : (
+						<>
+						<h1> You did it, {username}! Thanks for saving the website!</h1>
 						<h2>Powered by Giphy</h2>
-					</div>
-				) : (
-					<div className='title'>
-						<h1>Welcome to Giphy Hell, {username}</h1>
-						<h3 id='subtitle'>Thank God I'm Post-Human. Ugh</h3>
-					</div>
-				)}
-				<Nav />
-			</header>
+						</>
+					)}
+					<Nav />
+				</header>
 				<Home />
 				<main className='main'>
 					<Route exact path='/' component={GiphHeaven} />
@@ -121,14 +124,14 @@ function App() {
 						)}
 					</Route>
 
-					{/* <Route exact path='/game'>
+					<Route exact path='/game'>
 						<GameScreen />
-					</Route> */}
+					</Route>
 					<Route exact path='/game/match'>
-						{!gameOver ? <MatchGame /> : <Redirect to='/win' />}
+						{!gameOver ? <MatchGame /> : <Redirect to='/' />}
 					</Route>
 					<Route exact path='/game/common'>
-						{!gameOver ? <CommonGame /> : <Redirect to='/win' />}
+						{!gameOver ? <CommonGame /> : <Redirect to='/' />}
 					</Route>
 					<Route path='/win' component={WinScreen} />
 					<Route path='/*' render={() => <Redirect to='/' />} />

@@ -1,14 +1,10 @@
-import { useContext } from 'react';
-import { GameContext } from '../../../GameContext'; 
 import '../Game.css';
 
 const GameScreen = () => {
-    const game = useContext(GameContext);
 
     return (
         
-        <div className="message">
-            {/* <image className="background" src="https://media0.giphy.com/media/Lopx9eUi34rbq/giphy.gif?cid=befcbfe6wkvxuos3qpcupxte5bn23bklvljkrvc3dd6ccoqn&amp;rid=giphy.gif&amp;ct=g" alt="fire elmo GIF"/> */}
+        <div className="mainMessage">
             
              <h3>At last. I am free.</h3>
 					<p>
