@@ -3,7 +3,6 @@ import { GameContext } from '../../../GameContext';
 import Giph from '../../Giph/Giph';
 
 function CommonGame( ) {
-    //get game state using Context.
     const game = useContext(GameContext);
     const getRandomNumber = (n) => {
         return Math.floor(Math.random()*n);
@@ -27,12 +26,8 @@ function CommonGame( ) {
 			answer: 'jungle cruise',
 		}]);
         
-       // state var:
-        //input, setInput, useState(), to update the user's input.
         const [input, setInput] = useState('');
-        //currentPuzzle, setCurrentPuzzle useState(), to be used later.
         const [currentPuzzle, setCurrentPuzzle] = useState(compareNames[getRandomNumber(compareNames.length-1)]);
-       // const [guessCount, setGuessCount] = useState(3) to equal 3. // how many guesses on this puzzle?
     useEffect(()=>{
         game.setLevel(true);
     if(compareNames.length) setCurrentPuzzle(compareNames[getRandomNumber(compareNames.length-1)]);
@@ -40,8 +35,6 @@ function CommonGame( ) {
 
 
     function filterCompareNames(event) {
-       // setcompareNames to equal a filtered version of compareNames:
-           // if the current item DOES NOT match currentPuzzle, keep it.
             let tempArray = compareNames.filter(object => {
                 return !game.inputIsClose(event, object.answer);
             })
@@ -80,9 +73,6 @@ function CommonGame( ) {
                 onChange={handleChange} value={input}/>
             </form>
         </div>
-            {/* map across the currentPuzzle's names array. For each name, render the Giph component
-                pass through:
-                the name as props */}
 
                 <div className="gameContainer">
                     { currentPuzzle.names.map(name => {
