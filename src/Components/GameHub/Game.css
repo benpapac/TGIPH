@@ -5,8 +5,13 @@
 	background-color: black;
 	/* background-image: url('../../AdobeStock_314061401.jpeg');
 	background-size: cover; */
-	background: rgb(179,13,13);
-	background: linear-gradient(0deg, rgba(108,11,11,1) 38%, rgba(154,105,12,1) 52%, rgba(11,11,11,1) 68%);
+	background: rgb(179, 13, 13);
+	background: linear-gradient(
+		0deg,
+		rgba(108, 11, 11, 1) 38%,
+		rgba(154, 105, 12, 1) 52%,
+		rgba(11, 11, 11, 1) 68%
+	);
 
 	display: grid;
 	grid-template-rows: 1fr 4fr 1fr;
@@ -15,12 +20,19 @@
 }
 .Game main {
 	margin-top: 1rem;
-	grid-column: 2/ span 2 ;
-	
+	grid-column: 2 / span 2;
 }
 
 .Game form {
 	background: none;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+	color: goldenrod;
 }
 
 .title {
