@@ -48,6 +48,14 @@ input {
 	box-shadow: 4px 5px 6px black;
 }
 
+a {
+	color: black;
+}
+
+a:hover {
+	color: goldenrod;
+}
+
 #subtitle {
 	font-size: 17;
 }
