@@ -4,9 +4,8 @@
 	max-height: 70%;
 	max-width: 100%;
 	box-shadow: 4px 4px 6px black;
-
 }
-.giph img {
+img {
 	max-height: 100%;
 	max-width: 100%;
 }
@@ -16,8 +15,7 @@
 	margin: 1rem;
 	max-width: 200px;
 	box-shadow: 2px 3px 4px goldenrod;
-
 }
-.gameGiph img {
+img {
 	max-width: 100%;
 }
