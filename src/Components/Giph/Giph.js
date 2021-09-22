@@ -43,7 +43,7 @@ const Giph = ({ name, answer, id }) => {
 				) : (
 					// <h3> we have data.</h3>
 					<a href={myGiph.url} rel='noreferrer' target='_blank'>
-						<img src={myGiph.images.downsized_large.url} alt={myGiph.title} />
+						<img src={myGiph.images.downsized_small.url} alt={myGiph.title} />
 					</a>
 				)
 				//I want the gif image from myGiph
