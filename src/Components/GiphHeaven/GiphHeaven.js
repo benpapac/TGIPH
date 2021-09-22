@@ -1,9 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
-import { Route } from 'react-router-dom';
 import { GameContext } from '../../GameContext';
 import Card from '../Card/Card';
 import Axios from 'axios';
-import { Screen } from '../StyledComponents/Screens';
 import './GiphHeaven.css';
 import '../Card/Card.css';
 

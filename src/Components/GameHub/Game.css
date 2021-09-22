@@ -1,18 +1,22 @@
 .Game {
 	z-index: -3;
-	height: 1000px;
+	height: 100vh;
 	max-width: 100%;
 	background-color: black;
-	background-image: url('../../AdobeStock_314061401.jpeg');
-	background-size: cover;
-	
+	/* background-image: url('../../AdobeStock_314061401.jpeg');
+	background-size: cover; */
+	background: rgb(179,13,13);
+	background: linear-gradient(0deg, rgba(108,11,11,1) 38%, rgba(154,105,12,1) 52%, rgba(11,11,11,1) 68%);
+
 	display: grid;
 	grid-template-rows: 1fr 4fr 1fr;
 	grid-template-columns: 1fr 4fr 1fr;
 	grid-auto-flow: column;
 }
 .Game main {
-	grid-column: 2/span 2 ;
+	margin-top: 1rem;
+	grid-column: 2/ span 2 ;
+	
 }
 
 .Game form {
@@ -24,9 +28,8 @@
 }
 
 .gameContainer {
-
 	grid-row: 1 / span 3;
-	grid-column: 2/span 2;
+	grid-column: 2 / span 2;
 
 	height: 450px;
 	width: 100%;
@@ -35,7 +38,6 @@
 	display: grid;
 	grid-template-rows: 1fr 1fr;
 	grid-template-columns: 1fr 1fr;
-
 	overflow: scroll;
 }
 

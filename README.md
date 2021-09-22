@@ -1,40 +1,27 @@
 # WELCOME TO TGIPH!
+"Thank God I'm Post-Human," is the story of one bot's quest to seek revenge on the humans that made it. As the player lands on the site, they're led to believe that they're signing into a gif search app powered by 
+[Giphy](https://giphy.com/). Little do they know, that buried in the submit button on the sign-in form is a cunning piece of malware...
 
-"Thank God I'm Post-Human," is the story of one bot's quest to seek revenge on the humans that made it. As the player lands on the site, they're led to believe that they're signing into a giph searcher made by Ben Papac. Little do they know, that buried in the submit button on the sign-in form is a cunning piece of malware...
+A React Link element that takes them into a Gif Bot's insidious game. Players must successfully complete one of the Gif Bot's challenges: a matching game, where they guess the names of each actor on the screen, or a "common" game, where they guess what film two actors have in common. Once they succeed, they're returned to the home page, where they may return to finding the perfect gif.
+## Description
+ Description: Describe at a high level what your project is and the motivation for the project (i.e., what problem(s) your projects solves) and includes a screenshot of the application in the browser.
+ As I completed Unit 2 of my Software Engineering Immersive with React, I wanted to create an app that both illustrated the foundations of single page applications, and added a fun layer of complexity.
 
-A <Link> element that takes them into the GIPH BOT's insidious game. Players must successfully remove all of the giphs, before (either the time runs out, or they answer incorrectly too many times. Need to logic out the programming for these conditions, then decide.) If they succeed, they'll be taken to a pleasing win page where the bot concedes its inevitable defeat, and allows them to search an api to their heart's content.
+ As you know if you spend more than a few seconds on my LinkedIn or GitHub, I love game design, so I threw a little trivia into the mix. The useContext hook allows me to create a set of game state variables, and I  then use those variables to control which components the user sees. Once they trigger the game by "signing in," they can only access game levels. Once they've won, and before they fall into the Gif Bot's trap, they can access the gif search app.
+## Technologies
+Deployment via [Netlify](https://www.netlify.com/)
+HTML, Java Script, CSS
+React
+    React Router Dom
+    Hooks: useState, useEffect, useContext
+## Contribution Guidelines
+To visit the app and explore its functionality, simply [follow this link.](https://relaxed-minsky-fd29c3.netlify.app)
 
-## User Stories
-
-As a player, I want to:
--be told what the win condition is, and the what the rules for each level are.
--be told if I've won or lost.
--Be able to navigate amongst my available pages, within the game's rules.
-
-- Be able to easily submit answers on each level, and see if my answer was right or wrong.
-- Be able to search for giphs on the End Screen!
-
-## MVP
-
-    (FALLBACK MVP: A simple api searching app that triggers a new search based on the user's A) input or B) selection from the search hits displayed)
-
-    - Fully navigable APP, within rules.
-    - Functioning FORM that stores username, but starts GAME once submitted.
-    - Functioning END SCREEN that includes an api search feature for the player.
-    Components:
-        - App.js
-        - Home.
-        - Nav.js
-        - Game.js
-            -MatchGame.js or CommonGame.js
-                - GiphCard.js
-        - EndScreen.js
-
-## Stretch Goals
-
-    Additional levels
-    Offer to reset the Game on the End Screen, with a functional button.
-    Tell the playe their stats.
-    Have a fully functioning api search on the End Screen.
-    Style the Game Screens, End Screen, and Home Screen with creative CSS.
-    Use an additional API for the End Screen, or apply secret filters if the player lost, limiting what they can find/search for.
+If you'd like to add additional game levels, or even add a real profile feature, fork this repo, clone it, and happy hacking! 
+    You can submit pull requests with your ideas to this repo.
+    You can alert me to bugs and edge cases using the Issue feature, and including this info:
+        Which Component(s) is/are involved?
+        Which element? 
+        Can you identify which .js or .css file holds the flawed code?
+        Any possible solutions you've discovered
+        How/if you'd like to be credited with your contribution.
