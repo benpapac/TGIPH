@@ -84,7 +84,7 @@ function CommonGame( ) {
                 pass through:
                 the name as props */}
 
-                <div className="container">
+                <div className="gameContainer">
                     { currentPuzzle.names.map(name => {
                        return <Giph name={name} answer={currentPuzzle.answer}/>
                     })}
