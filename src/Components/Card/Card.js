@@ -1,7 +1,5 @@
-import { useContext } from 'react';
 import '../../App.css';
 import './Card.css';
-import {  GameContext } from '../../GameContext';
 
 const Card = ({ card, key, id }) => {
 	return (
@@ -11,11 +9,9 @@ const Card = ({ card, key, id }) => {
 					//does my Giph have a value? If no, say we're loading.
 					<h3>Preparing your giph...</h3>
 				) : (
-					// <h3> we have data.</h3>
 					<>
 							<a href={card.url} rel='noreferrer' target='_blank'>
 								<img src={card.images.downsized_large.url} alt={card.title} />
-								{/* Check it out on Giphy. */}
 							</a> 
 					</>
 				)
