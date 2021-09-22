@@ -24,16 +24,13 @@
 }
 
 .gameContainer {
-	/* margin: 0; */
-	/* background: rgba(107, 0, 0, 0.4); */
+
 	grid-row: 1 / span 3;
 	grid-column: 2/span 2;
 
 	height: 450px;
 	width: 100%;
-	/* padding: 3rem; */
 	z-index: 1;
-	/* box-shadow: 4px 1px 16px goldenrod; */
 
 	display: grid;
 	grid-template-rows: 1fr 1fr;
@@ -75,85 +72,79 @@
 .quadrant {
 	display: grid;
 	grid-template: repeat(6, 50px) / repeat(6, 50px);
-	/* gap: 2px; */
 }
 
 #nicholson {
-	grid-row: 2 / span 2;
-	grid-column: 2 / span 3;
+	grid-row: 1 / span 2;
+	grid-column: 1 / span 3;
 }
 #nyongo {
 	grid-row: 5 / span 2;
-	grid-column: 3 / span 3;
+	grid-column: 4 / span 3;
 }
 
 #cruise {
 	grid-row: 4 / span 2;
-	grid-column: 1 / span 3;
+	grid-column: 4 / span 3;
 }
 
 #dwayne {
-	grid-row: 1 / span 2;
+	grid-row: 2 / span 2;
 	grid-column: 3 / span 3;
 }
 
 #carey {
-	grid-row: 4 / span 2;
+	grid-row: 2 / span 2;
 	grid-column: 3 / span 3;
 }
 
 #viola {
-	grid-row: 2 / span 3;
-	grid-column: 4 / span 3;
-}
-
-#eva {
-	grid-row: 1 / span 2;
-	grid-column: 1 / span 4;
-}
-
-#kal {
-	grid-row: 5 / span 2;
+	grid-row: 4 / span 3;
 	grid-column: 1 / span 3;
 }
 
-#leo {
+#eva {
+	grid-row: 2 / span 2;
+	grid-column: 1 / span 3;
+}
+
+#kal {
 	grid-row: 1 / span 2;
-	grid-column: 2 / span 3;
+	grid-column: 4 / span 3;
+}
+
+#leo {
+	grid-row: 2 / span 3;
+	grid-column: 1 / span 4;
 }
 
 #meryl {
 	grid-row: 3 / span 2;
-	grid-column: 1 / span 3;
+	grid-column: 2 / span 3;
 }
 #antonio {
-	grid-row: 4 / span 2;
-	grid-column: 2 / span 4;
-}
-#ferrell {
-	grid-row: 2 / span 3;
+	grid-row: 5 / span 2;
 	grid-column: 4 / span 3;
 }
-
-#kal {
-	grid-row: 6 / span 1;
-	grid-column: 1 / span 3;
+#ferrell {
+	grid-row: 4 / span 3;
+	grid-column: 3 / span 3;
 }
 
 #steve {
 	grid-row: 4 / span 2;
-	grid-column: 4 / span 3;
+	grid-column: 1 / span 3;
 }
 
 #brad {
-	grid-row: 2 / span 3;
-	grid-column: 2 / span 3;
+	grid-row: 3 / span 3;
+	grid-column: 3 / span 3;
 }
 #smith {
 	grid-row: 5 / span 2;
-	grid-column: 2 / span 4;
+	grid-column: 1 / span 3;
 }
 #awkwa {
-	grid-row: 1 / span 2;
-	grid-column: 3 / span 3;
+	grid-row: 2 / span 3;
+	grid-column: 2 / span 5;
 }
