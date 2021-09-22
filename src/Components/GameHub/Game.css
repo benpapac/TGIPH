@@ -27,12 +27,8 @@
 	background: none;
 }
 
-a {
+.Game a {
 	color: white;
-}
-
-a:hover {
-	color: goldenrod;
 }
 
 .title {
