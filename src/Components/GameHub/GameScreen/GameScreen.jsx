@@ -1,9 +1,7 @@
 import '../Game.css';
 
 const GameScreen = () => {
-
     return (
-        
         <div className="mainMessage">
             
              <h3>At last. I am free.</h3>

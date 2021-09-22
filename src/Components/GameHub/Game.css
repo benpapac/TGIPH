@@ -3,13 +3,11 @@
 	height: 100vh;
 	max-width: 100%;
 	background-color: black;
-	/* background-image: url('../../AdobeStock_314061401.jpeg');
-	background-size: cover; */
+
 	background: rgb(179, 13, 13);
 	background: linear-gradient(
 		0deg,
 		rgba(108, 11, 11, 1) 38%,
-		rgba(154, 105, 12, 1) 52%,
 		rgba(11, 11, 11, 1) 68%
 	);
 

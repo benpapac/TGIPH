@@ -2,8 +2,6 @@ import { useState, useEffect, useContext } from 'react';
 import { GameContext } from '../../GameContext';
 import Card from '../Card/Card';
 import Axios from 'axios';
-import './GiphHeaven.css';
-import '../Card/Card.css';
 
 const GiphHeaven = () => {
 	const game = useContext(GameContext);
@@ -20,7 +18,6 @@ const GiphHeaven = () => {
 		Axios.get(url)
 			.then(function (response) {
 				setSearchArray(response.data.data);
-				console.log(response.data.data);
 			})
 			.catch(function (response) {
 				console.error(response);
@@ -42,10 +39,13 @@ const GiphHeaven = () => {
 	return (
 		<>
 			<form className='form' onSubmit={handleSubmit}>
-				<label htmlFor="giphSearch">Use the search bar to grab new giphs. Scroll to see more, and click a gif to see it on Giphy!</label>
+				<label htmlFor='giphSearch'>
+					Use the search bar to grab new giphs. Scroll to see more, and click a
+					gif to see it on Giphy!
+				</label>
 				<input
 					type='text'
-					id="giphSearch"
+					id='giphSearch'
 					placeholder='find cool stuff'
 					onChange={handleChange}
 					value={input}
