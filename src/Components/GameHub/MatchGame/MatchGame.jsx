@@ -61,7 +61,7 @@ import '../Game.css';
             </form>
         </div>
 
-        <div className="gameContainer">
+        <div className="gameContainer" >
             <div className="quadrant" id="one">
              { game.namesArray.map(person => {
                 if(game.namesArray.indexOf(person) <= 3) {
