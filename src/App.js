@@ -4,7 +4,6 @@ import './App.css';
 import './Components/GameHub/Game.css';
 import { GameContext } from './GameContext';
 import Nav from './Components/Nav/Nav';
-import Home from './Components/Home/Home';
 import GiphHeaven from './Components/GiphHeaven/GiphHeaven';
 import Signup from './Components/Signup/Signup';
 import GameScreen from './Components/GameHub/GameScreen/GameScreen';
@@ -107,7 +106,6 @@ function App() {
 					)}
 					<Nav />
 				</header>
-				<Home />
 				<main className='main'>
 					<Route exact path='/' component={GiphHeaven} />
 					<Route exact path='/form'>
