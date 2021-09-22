@@ -12,11 +12,11 @@ const GiphHeaven = () => {
 	const [input, setInput] = useState('');
 	const [search, setSearch] = useState('heaven');
 	const [searchArray, setSearchArray] = useState();
-	const url = `${game.searchOptions.base}q=${search}&api_key=${process.env.REACT_APP_GIPHY_KEY}&limit=12&offset=${game.searchOptions.offset}&rating=${game.searchOptions.rating}&lang=en`;
+	const url = `${game.searchOptions.base}q=${search}&api_key=${process.env.REACT_APP_GIPHY_KEY}&limit=30&offset=${game.searchOptions.offset}&rating=${game.searchOptions.rating}&lang=en`;
 
 	useEffect(() => {
 		getGiphs(search);
-	}, [search]);
+	}, []);
 
 	function getGiphs(search) {
 		Axios.get(url)
