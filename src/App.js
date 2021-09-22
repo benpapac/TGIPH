@@ -14,8 +14,6 @@ import CommonGame from './Components/GameHub/CommonGame/CommonGame';
 // HI! Currently, once game starts, if player refreshes browser, the app resets.
 //This is most likely because submitted resets during initial render. Maybe I can fix this. Not sure how yet.
 
-//giphs Array might want to live here.
-//completed level count might want to live here.
 function App() {
 	const [gameOver, setGameOver] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
@@ -46,7 +44,6 @@ function App() {
 		key: process.env.REACT_APP_GIPHY_KEY,
 		gameLimit: 1,
 		monsterLimit: 25,
-		winLimit: 25,
 		rating: 'pg',
 		offset: 0,
 		username: username,
