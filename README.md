@@ -41,4 +41,3 @@ How/if you'd like to be credited with your contribution.
 ### Thanks for stopping by!
 Feel free to browse the rest of my GitHub, and say hi on [Linked In!](https://www.linkedin.com/in/benpapac/)
 Let's make something great together.
-- Benjamin
